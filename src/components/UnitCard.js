@@ -1,49 +1,22 @@
-import {
-    Card,
-    CardHeader,
-    CardBody,
-    CardFooter,
-    Typography,
-    Input,
-    Button,
-    Checkbox
-  } from "@material-tailwind/react";
-   
-  export default function UnitCard() {
-    return (
-      <Card className="w-96">
-        {/* <CardHeader
-          variant="gradient"
-          color="blue"
-          className="mb-4 grid h-28 place-items-center"
-        >
-        </CardHeader> */}
-        <CardBody className="flex flex-col gap-4">
-          <Input label="Email" size="lg" />
-          <Input label="Password" size="lg" />
-          <div className="-ml-2.5">
-            <Checkbox label="Remember Me" />
-          </div>
-        </CardBody>
-        <CardFooter className="pt-0">
-          <Button variant="gradient" fullWidth>
-            Sign In
-          </Button>
-          <Typography variant="small" className="mt-6 flex justify-center">
-            Don't have an account?
-            <Typography
-              as="a"
-              href="#signup"
-              variant="small"
-              color="blue"
-              className="ml-1 font-bold"
-            >
-              Sign up
-            </Typography>
-          </Typography>
-        </CardFooter>
-      </Card>
 
-      
+   
+  export default function UnitCard(props) {
+console.log(props);
+    
+
+    return (
+      <div class="card w-96 bg-base-100 shadow-xl">
+    
+      <figure class="px-10 pt-10">
+        <img src="https://placeimg.com/400/225/arch" alt="Shoes" class="rounded-xl" />
+      </figure>
+      <div class="card-body items-center text-center">
+        <h2 class="card-title">{props.isAttacker.toString()}</h2>
+        <p>If a dog chews shoes whose shoes does he choose?</p>
+        <div class="card-actions">
+          <button class="btn btn-primary">Buy Now</button>
+        </div>
+      </div>
+    </div> 
     );
   }
