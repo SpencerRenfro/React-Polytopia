@@ -1,5 +1,8 @@
+import Modal from './Modal';
+
+
 export default function UnitCard(props) {
-  console.log(props);
+  console.log(props.selectedUnitData, props.isAttacker, props.isBoosted, props.inputHealth, props.isVeteran);
 
   let imageSource = `${process.env.PUBLIC_URL}/Defender-images/${props.selectedUnitData.imageSource}`;
   if (props.isAttacker) {
@@ -11,19 +14,28 @@ export default function UnitCard(props) {
     cardTitle = "Attacker";
   }
 
+
+  function updateInput(event, valueName) {
+    const newSelectedUnitData = {...props.selectedUnitData};
+    newSelectedUnitData[valueName] = parseInt(event.target.value);
+    props.updateData(props.isAttacker, newSelectedUnitData);
+  }
+
   return (
-    <div class="card w-96 bg-base-100 shadow-xl">
+    <div className="card w-96 bg-base-100 shadow-xl">
       <div className="p-3">
-        <h2 class="card-title">{cardTitle}</h2>
+        <h2 className="card-title">{cardTitle}</h2>
       </div>
 
-      <figure class="px-10 pt-10">
-        <img src={imageSource} width={150} alt="Shoes" class="rounded-xl" />
+      <figure className="px-10 pt-10">
+        <img src={imageSource} width={150} alt="Shoes" className="rounded-xl" />
       </figure>
 
-      <div class="card-body items-left text-center flex flex-col justify-between">
+      <div className="card-body items-left text-center flex flex-col justify-between">
         <div className="unitcard-inputs">
           <input
+            value={props.selectedUnitData.inputHealth}
+            onChange={(event) => updateInput(event, 'inputHealth')}
             type="number"
             placeholder="Enter Input Health"
             className="input input-bordered input-primary w-full max-w-xs"
@@ -59,6 +71,7 @@ export default function UnitCard(props) {
                 <input
                   type="checkbox"
                   checked={props.isBoosted}
+                  onClick={(event) => updateInput(event, 'isBoosted')}
                   className="checkbox checkbox-primary"
                 />
               </label>
@@ -90,9 +103,10 @@ export default function UnitCard(props) {
           )}
         </div>
         <div className="unitcard-button">
-          <div class="card-actions">
-            <button class="btn btn-primary" onClick={() => props.setModalPopup(!props.modalPopup)}>Select Unit</button>
-            <label htmlFor="my-modal" className="btn modal-button">open modal</label>
+          <div className="card-actions">
+            <button className="btn btn-primary modal-button" onClick={() => props.triggerModal(props.isAttacker)}>Select Unit</button> 
+             {/* <label htmlFor="my-modal" className="btn modal-button" onClick={() => props.triggerModal(props.isAttacker)}>open modal</label>   */}
+             
           </div>
         </div>
       </div>
