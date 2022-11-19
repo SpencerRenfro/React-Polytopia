@@ -10,6 +10,7 @@ export default function Results(props) {
    var attackResult = Math.round(attackForce / totalDamage * props.selectedUnitAttackerData.attack * 4.5);
    var defenceResult = Math.round(defenceForce / totalDamage * props.selectedUnitDefenderData.defence * 4.5);
 
+
    var offence_status_HP = props.selectedUnitAttackerData.inputHealth - defenceResult;
    var defence_status_HP = props.selectedUnitDefenderData.inputHealth - attackResult;
 
@@ -53,7 +54,7 @@ export default function Results(props) {
         <td>Attack:{props.selectedUnitAttackerData.attack}</td>
         <td>Defense:{props.selectedUnitAttackerData.defence}</td>
         <td>Original HP {props.selectedUnitAttackerData.inputHealth} </td>
-        <td>New HP {defenceResult}</td>
+        <td>New HP { defenceResult}</td>
         <td>Status:{offenceStatus}</td>
    
       </tr>

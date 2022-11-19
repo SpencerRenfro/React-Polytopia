@@ -1,3 +1,4 @@
+// components
 import "./App.css";
 import Navbar from "./components/Navbar";
 import UnitCard from "./components/UnitCard";
@@ -5,6 +6,14 @@ import "./index.css";
 import { Button } from "@material-tailwind/react";
 import Results from "./components/Results";
 import Modal from './components/Modal'
+import SingleBattle from "./components/SingleBattle";
+import MultiBattle from "./components/MultiBattle";
+
+
+
+// libraries
+import { Route, Routes, Navigate, NavLink, Outlet } from "react-router-dom";
+import React from "react";
 import { useState, useEffect } from "react";
 
 
@@ -145,7 +154,9 @@ function App() {
     inputHealth: 10,
     attack: 2,
     defence: 2,
-    defence_Bonus: 1,
+    default_Bonus: 1,
+    defence_Bonus: false,
+    isCityWall: false,
     isBoosted: false,
     isPoisoned: false,
     isVeteran: false,
@@ -154,16 +165,16 @@ function App() {
 
 
 //results logic
-useEffect(() => {
-  // for( var prop in characters ) {
-  //   if(selectedAttacker.name === prop){
-  //     selectedAttacker.attack = prop.attack
-  //   }
-  //   else if(selectedDefender.name === prop){
-  //     selectedDefender.attack = prop.attack
-  //   }
-  // }
-},[selectedAttacker, selectedDefender]);  
+// useEffect(() => {
+//   // for( var prop in characters ) {
+//   //   if(selectedAttacker.name === prop){
+//   //     selectedAttacker.attack = prop.attack
+//   //   }
+//   //   else if(selectedDefender.name === prop){
+//   //     selectedDefender.attack = prop.attack
+//   //   }
+//   // }
+// },[selectedAttacker, selectedDefender]);  
 
 
   
@@ -198,15 +209,22 @@ useEffect(() => {
 
   function updateModalSelection(charData){
     if(isModalAttacker){
-      setSelectedAttackerData(charData)
+      setSelectedAttackerData({ ...selectedAttacker, ...charData });
     } else{
-      setSelectedDefenderData(charData)
+      setSelectedDefenderData({ ...selectedDefender, ...charData });
     }
     triggerModal(false);
   }
   return (
     <div className="App">
-      <Navbar />
+      <Navbar/>
+
+
+        <Routes>
+          <Route path="/"/>
+          <Route path="multibattle" element={<MultiBattle />}/>
+        </Routes>
+
       <div className="flex flex-row mt-5 mx-10 justify-center gap-6">
 
         <UnitCard

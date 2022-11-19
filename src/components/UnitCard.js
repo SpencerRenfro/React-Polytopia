@@ -17,7 +17,16 @@ export default function UnitCard(props) {
 
   function updateInput(event, valueName) {
     const newSelectedUnitData = {...props.selectedUnitData};
-    newSelectedUnitData[valueName] = parseInt(event.target.value);
+    if(valueName === "inputHealth"){
+      
+      newSelectedUnitData[valueName] = parseInt(event.target.checked);
+    }
+    else{
+      newSelectedUnitData[valueName] = event.target.checked;
+    }
+
+    console.log(event.target.value + "event-target-value");
+  
     props.updateData(props.isAttacker, newSelectedUnitData);
   }
 
@@ -47,6 +56,7 @@ export default function UnitCard(props) {
               <input
                 type="checkbox"
                 checked={props.isVeteran}
+                onClick={(event) => updateInput(event, 'isVeteran')}
                 className="checkbox checkbox-primary"
               />
             </label>
@@ -58,6 +68,7 @@ export default function UnitCard(props) {
                 <input
                   type="checkbox"
                   checked={props.isBoosted}
+                  onClick={(event) => updateInput(event, 'isBoosted')}
                   className="checkbox checkbox-primary"
                 />
               </label>
@@ -70,8 +81,8 @@ export default function UnitCard(props) {
                 <span className="label-text">Is it poisioned?</span>
                 <input
                   type="checkbox"
-                  checked={props.isBoosted}
-                  onClick={(event) => updateInput(event, 'isBoosted')}
+                  checked={props.isPoisoned}
+                  onClick={(event) => updateInput(event, 'isPoisoned')}
                   className="checkbox checkbox-primary"
                 />
               </label>
@@ -83,7 +94,8 @@ export default function UnitCard(props) {
                 <span className="label-text">Defense bonus?</span>
                 <input
                   type="checkbox"
-                  checked={props.isBoosted}
+                  checked={props.defence_Bonus}
+                  onClick={(event) => updateInput(event, 'defence_Bonus')}
                   className="checkbox checkbox-primary"
                 />
               </label>
@@ -95,7 +107,8 @@ export default function UnitCard(props) {
                 <span className="label-text">City wall?</span>
                 <input
                   type="checkbox"
-                  checked={props.isBoosted}
+                  checked={props.cityWall}
+                  onClick={(event) => updateInput(event, 'isCityWall')}
                   className="checkbox checkbox-primary"
                 />
               </label>
