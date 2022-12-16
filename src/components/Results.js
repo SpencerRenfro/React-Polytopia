@@ -3,12 +3,35 @@ export default function Results(props) {
    let imageAttacker = `${process.env.PUBLIC_URL}/Attacker-images/${props.selectedUnitAttackerData.imageSource}`;
    let imageDefender = `${process.env.PUBLIC_URL}/Defender-images/${props.selectedUnitDefenderData.imageSource}`; 
 
-   var attackForce = props.selectedUnitAttackerData.attack * (props.selectedUnitAttackerData.inputHealth / props.selectedUnitAttackerData.maxHealth);
-   var defenceForce = (props.selectedUnitDefenderData.defence * (props.selectedUnitDefenderData.inputHealth / props.selectedUnitDefenderData.maxHealth)) * props.selectedUnitDefenderData.defence_Bonus;
+
+
+   var attackerMaxHPToUse = props.selectedUnitAttackerData.maxHealth;
+
+   if(props.selectedUnitAttackerData.isVeteran){
+    attackerMaxHPToUse = attackerMaxHPToUse + 5;
+   }
+
+   var defenderMaxHPToUse = props.selectedUnitDefenderData.maxHealth;
+
+   if(props.selectedUnitDefenderData.isVeteran){
+    defenderMaxHPToUse = defenderMaxHPToUse + 5;
+   }
+   
+
+
+
+   var attackForce = props.selectedUnitAttackerData.attack * (props.selectedUnitAttackerData.inputHealth / attackerMaxHPToUse);
+   var defenceForce = (props.selectedUnitDefenderData.defence * (props.selectedUnitDefenderData.inputHealth / defenderMaxHPToUse)) * props.selectedUnitDefenderData.default_Bonus;
+  //  console.log(props.selectedUnitDefenderData.default_Bonus);
+  //   removed * props.selectedUnitDefenderData.defence_Bonus; at the end of line 8
    var totalDamage = attackForce + defenceForce;
 
    var attackResult = Math.round(attackForce / totalDamage * props.selectedUnitAttackerData.attack * 4.5);
    var defenceResult = Math.round(defenceForce / totalDamage * props.selectedUnitDefenderData.defence * 4.5);
+
+  //  console.log(attackResult);
+  //  console.log(defenceResult);
+  //  console.log(props.selectedUnitAttackerData.inputHealth);
 
 
    var offence_status_HP = props.selectedUnitAttackerData.inputHealth - defenceResult;
@@ -54,7 +77,7 @@ export default function Results(props) {
         <td>Attack:{props.selectedUnitAttackerData.attack}</td>
         <td>Defense:{props.selectedUnitAttackerData.defence}</td>
         <td>Original HP {props.selectedUnitAttackerData.inputHealth} </td>
-        <td>New HP { defenceResult}</td>
+        <td>New HP { offence_status_HP}</td>
         <td>Status:{offenceStatus}</td>
    
       </tr>
@@ -65,7 +88,7 @@ export default function Results(props) {
         <td>Attack:{props.selectedUnitDefenderData.attack}</td>
         <td>Defense: {props.selectedUnitDefenderData.defence}</td>
         <td>Original HP {props.selectedUnitDefenderData.inputHealth}</td>
-        <td>New HP {attackResult}</td>
+        <td>New HP {defence_status_HP}</td>
         <td>Status:{defenceStatus} </td>
       </tr>
       {/* <!-- row 3 --> */}

@@ -184,6 +184,8 @@ function App() {
 
 // 
 
+  // const [defenseBonus, setDefenseBonus] = useState(selectedDefender.default_Bonus);
+
   const [resultSelectionAttacker, setResultSelectionAttacker] = useState(selectedAttacker);
   const [resultSelectionDefender, setResultSelectionDefender] = useState(selectedDefender);
  
@@ -196,9 +198,9 @@ function App() {
 
   function updateData(isAttacker, updatedData){
     if(isAttacker){
-      setSelectedAttackerData(updatedData)
+      setSelectedAttackerData({ ...selectedAttacker, ...updatedData });
     }else{
-      setSelectedDefenderData(updatedData)
+      setSelectedDefenderData({...selectedDefender,  ...updatedData});
     }
   }
 
@@ -208,6 +210,7 @@ function App() {
   }
 
   function updateModalSelection(charData){
+    charData.inputHealth = charData.maxHealth;
     if(isModalAttacker){
       setSelectedAttackerData({ ...selectedAttacker, ...charData });
     } else{
@@ -220,10 +223,10 @@ function App() {
       <Navbar/>
 
 
-        <Routes>
-          <Route path="/"/>
+        {/* <Routes>
+          <Route path="/" />
           <Route path="multibattle" element={<MultiBattle />}/>
-        </Routes>
+        </Routes> */}
 
       <div className="flex flex-row mt-5 mx-10 justify-center gap-6">
 
@@ -237,6 +240,7 @@ function App() {
         />
         <UnitCard
           /* {UnitCard({charData,isAttacker:false})} */
+          // defenseBonus={defenseBonus}
           selectedUnitData={selectedDefenderData}
           isAttacker={false}
           setModalPopup={setModalPopup}

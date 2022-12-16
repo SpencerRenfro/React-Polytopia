@@ -2,6 +2,7 @@ import Modal from './Modal';
 
 
 export default function UnitCard(props) {
+  
   console.log(props.selectedUnitData, props.isAttacker, props.isBoosted, props.inputHealth, props.isVeteran);
 
   let imageSource = `${process.env.PUBLIC_URL}/Defender-images/${props.selectedUnitData.imageSource}`;
@@ -15,18 +16,22 @@ export default function UnitCard(props) {
   }
 
 
+  // function handleDefenseBonus(defenseBonusValue){
+  //   this.setState({})
+  // }
+
   function updateInput(event, valueName) {
     const newSelectedUnitData = {...props.selectedUnitData};
     if(valueName === "inputHealth"){
       
-      newSelectedUnitData[valueName] = parseInt(event.target.checked);
+      newSelectedUnitData[valueName] = parseInt(event.target.value);
     }
     else{
       newSelectedUnitData[valueName] = event.target.checked;
     }
 
     console.log(event.target.value + "event-target-value");
-  
+
     props.updateData(props.isAttacker, newSelectedUnitData);
   }
 

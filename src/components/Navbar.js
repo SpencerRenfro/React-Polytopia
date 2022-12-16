@@ -15,8 +15,8 @@ export default function PolytopiaNavbar() {
   </div>
   <div className="flex-none">
     <ul className="menu menu-horizontal p-0">
-      <li><NavLink to="/" end>Sinlge Battle</NavLink></li>
-      <li><NavLink to="multibattle" end>Multi Battle</NavLink></li>
+      {/* <li><NavLink to="/" end>Sinlge Battle</NavLink></li>
+      <li><NavLink to="multibattle" end>Multi Battle</NavLink></li> */}
  
 
     </ul>
