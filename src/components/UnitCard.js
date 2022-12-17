@@ -1,4 +1,5 @@
-import Modal from './Modal';
+// import Modal from './Modal';
+// import React, {useState} from 'react'
 
 
 export default function UnitCard(props) {
@@ -15,6 +16,10 @@ export default function UnitCard(props) {
     cardTitle = "Attacker";
   }
 
+
+  // show/hide defense bonuses
+
+    // const [showDefenseBonuses, setShowDefenseBonuses] = useState(true);
 
   // function handleDefenseBonus(defenseBonusValue){
   //   this.setState({})
@@ -33,6 +38,13 @@ export default function UnitCard(props) {
     console.log(event.target.value + "event-target-value");
 
     props.updateData(props.isAttacker, newSelectedUnitData);
+
+  //   if(props.isPoisoned.checked){
+  //     setShowDefenseBonuses(false)
+  //   }
+  //   else{
+  //     setShowIsPoisoned(true)
+  //   }
   }
 
   return (
@@ -42,7 +54,7 @@ export default function UnitCard(props) {
       </div>
 
       <figure className="px-10 pt-10">
-        <img src={imageSource} width={150} alt="Shoes" className="rounded-xl" />
+        <img src={imageSource} width={150} className="rounded-xl" />
       </figure>
 
       <div className="card-body items-left text-center flex flex-col justify-between">
@@ -79,32 +91,44 @@ export default function UnitCard(props) {
               </label>
             </div>
           )}
+          
 
+          
           {!props.isAttacker && (
             <div className="form-control">
               <label className="label cursor-pointer">
                 <span className="label-text">Is it poisioned?</span>
                 <input
                   type="checkbox"
-                  checked={props.isPoisoned}
-                  onClick={(event) => updateInput(event, 'isPoisoned')}
+                  // checked={props.isPoisoned}
+                  onClick={(event) => {
+                    updateInput(event, 'isPoisoned')
+                  }}
+                
                   className="checkbox checkbox-primary"
                 />
               </label>
             </div>
           )}
-          {!props.isAttacker && (
-            <div className="form-control">
-              <label className="label cursor-pointer">
-                <span className="label-text">Defense bonus?</span>
+          {!props.isAttacker &&(
+          
+            <div>
+          
+              <div className="form-control">
+            <label className="label cursor-pointer"> 
+            <span className="label-text">Defense Bonus?</span>
                 <input
                   type="checkbox"
                   checked={props.defence_Bonus}
-                  onClick={(event) => updateInput(event, 'defence_Bonus')}
+                  onClick={(event) => updateInput(event, 'defence_Bonus')
+                  }
                   className="checkbox checkbox-primary"
                 />
               </label>
             </div>
+           
+            </div>
+            
           )}
           {!props.isAttacker && (
             <div className="form-control">
@@ -119,6 +143,7 @@ export default function UnitCard(props) {
               </label>
             </div>
           )}
+            
         </div>
         <div className="unitcard-button">
           <div className="card-actions">

@@ -164,6 +164,31 @@ function App() {
   };
 
 
+  var defaultSelectedAttacker = {
+    name: "warrior",
+    maxHealth: 10,
+    inputHealth: 10,
+    attack: 2,
+    defence: 2,
+    isVeteran: false,
+    isBoosted: false,
+    imageSource: "Warrior.png",
+  };
+  var defaultSelectedDefender = {
+    name: "warrior",
+    maxHealth: 10,
+    inputHealth: 10,
+    attack: 2,
+    defence: 2,
+    default_Bonus: 1,
+    defence_Bonus: false,
+    isCityWall: false,
+    isBoosted: false,
+    isPoisoned: false,
+    isVeteran: false,
+    imageSource: "Warrior.png",
+  };
+
 //results logic
 // useEffect(() => {
 //   // for( var prop in characters ) {
@@ -195,6 +220,12 @@ function App() {
 
   const [modalPopup, setModalPopup] = useState(false);  
   const [isModalAttacker, setIsModalAttacker] = useState(false);
+
+    function resetData(isAttacker, updatedData){
+    setSelectedAttackerData(updatedData);
+    setSelectedDefenderData(defaultSelectedDefender);
+  }
+
 
   function updateData(isAttacker, updatedData){
     if(isAttacker){
@@ -239,8 +270,6 @@ function App() {
           updateData={updateData}
         />
         <UnitCard
-          /* {UnitCard({charData,isAttacker:false})} */
-          // defenseBonus={defenseBonus}
           selectedUnitData={selectedDefenderData}
           isAttacker={false}
           setModalPopup={setModalPopup}
@@ -272,6 +301,10 @@ function App() {
           isModalAttacker={isModalAttacker}
           selectedUnitDefenderData={selectedDefenderData}
           selectedUnitAttackerData={selectedAttackerData}
+          defaultSelectedAttacker={defaultSelectedAttacker}
+          defaultSelectedDefender={selectedDefender}
+          setSelectedAttackerData={setSelectedAttackerData}
+          resetData={resetData}
         />
 
       </div>
