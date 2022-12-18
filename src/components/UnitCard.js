@@ -31,21 +31,21 @@ export default function UnitCard(props) {
       
       newSelectedUnitData[valueName] = parseInt(event.target.value);
     }
+   
     else{
       newSelectedUnitData[valueName] = event.target.checked;
     }
 
     console.log(event.target.value + "event-target-value");
+    console.log(event.target.value.checked + "checkbox prop");
 
     props.updateData(props.isAttacker, newSelectedUnitData);
 
-  //   if(props.isPoisoned.checked){
-  //     setShowDefenseBonuses(false)
-  //   }
-  //   else{
-  //     setShowIsPoisoned(true)
-  //   }
   }
+
+
+
+
 
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
@@ -67,9 +67,12 @@ export default function UnitCard(props) {
             className="input input-bordered input-primary w-full max-w-xs"
           />
 
+          {/* 00000000 */}
+  
+
           <div className="form-control">
             <label className="label cursor-pointer">
-              <span className="label-text">Is veteran?</span>
+              <span className="label-text">Is veteran?(test checkbox)</span>
               <input
                 type="checkbox"
                 checked={props.isVeteran}

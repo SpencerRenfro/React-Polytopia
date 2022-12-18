@@ -43,7 +43,6 @@ export default function Modal(props) {
             <button
               className="btn btn-primary"
               onClick={() => props.updateModalSelection(props.charData[currentSelectedChar])}
-
             >
               Close
             </button>

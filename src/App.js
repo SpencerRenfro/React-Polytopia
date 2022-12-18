@@ -25,85 +25,352 @@ function App() {
       maxHealth: 10,
       attack: 2,
       defence: 2,
+      veteran: true,
       imageSource: "Warrior.png",
+      objectID: "Warrior",
     },
     swordsman: {
       name: "Swordsman",
       maxHealth: 15,
       attack: 3,
       defence: 3,
+      veteran: true,
       imageSource: "Swordsman.png",
+      objectID: "Swordsman",
     },
     knight: {
       name: "Knight",
-      maxHealth: 15,
+      maxHealth: 10,
       attack: 3.5,
       defence: 3,
+      veteran: true,
       imageSource: "Knight.png",
+      objectID: "Knight",
     },
     defender: {
       name: "Defender",
       maxHealth: 15,
       attack: 1,
       defence: 3,
+      veteran: true,
       imageSource: "Defender.png",
+      objectID: "Defender",
     },
     mind_bender: {
-      name: "Mind_bender",
+      name: "MindBender",
       maxHealth: 10,
       attack: 0,
       defence: 1,
+      veteran: true,
       imageSource: "Mind Bender.png",
+      objectID: "MindBender",
     },
     archer: {
       name: "Archer",
       maxHealth: 10,
       attack: 2,
       defence: 1,
+      veteran: true,
       imageSource: "Archer.png",
+      objectID: "Archer",
     },
     catapult: {
       name: "Catapult",
       maxHealth: 10,
       attack: 4,
       defence: 0,
+      veteran: true,
       imageSource: "Catapult.png",
+      objectID: "Catapult",
     },
     giant: {
       name: "Giant",
       maxHealth: 40,
       attack: 5,
       defence: 4,
+      veteran: false,
       imageSource: "Giant.png",
+      objectID: "Giant",
     },
     rider: {
       name: "Rider",
       maxHealth: 10,
       attack: 2,
       defence: 1,
+      veteran: true,
       imageSource: "Rider.png",
+      objectID: "Rider",
+    },
+    cloak: {
+      name: "Cloak",
+      maxHealth: 5,
+      attack: 0,
+      defence: 0.5,
+      veteran: false,
+      imageSource: "Cloak.png",
+      objectID: "Cloak",
+    },
+    dagger: {
+      name: "Dagger",
+      maxHealth: 10,
+      attack: 2,
+      defence: 2,
+      veteran: false,
+      imageSource: "Dagger.png",
+      objectID: "Dagger",
+    },
+    dinghy: {
+      name: "Dinghy",
+      maxHealth: 5,
+      attack: 0,
+      defence: 0.5,
+      veteran: false,
+      imageSource: "Dinghy.png",
+      objectID: "Dinghy",
     },
     boat: {
       name: "Boat",
       maxHealth: 10,
       attack: 1,
       defence: 1,
+      veteran: false,
       imageSource: "Boat.png",
+      objectID: "Boat",
     },
     ship: {
       name: "Ship",
       maxHealth: 10,
       attack: 2,
       defence: 2,
+      veteran: false,
       imageSource: "Ship.png",
+      objectID: "Ship",
     },
-    battleShip: {
-      name: "Battleship",
-      maxHealth: 10,
+    battle_ship: {
+      name: "Battle_Ship",
+      maxHealth: 15,
+      carryingUnit: "Warrior",
       attack: 4,
       defence: 3,
+      veteran: false,
       imageSource: "Battleship.png",
-    }
+      objectID: "Battle_Ship",
+    },
+    polytaur: {
+      name: "Polytaur",
+      maxHealth: 15,
+      attack: 3,
+      defence: 1,
+      veteran: true,
+      imageSource: "Polytaur.png",
+      objectID: "Polytaur",
+    },
+    navalon: {
+      name: "Navalon",
+      maxHealth: 30,
+      attack: 4,
+      defence: 4,
+      veteran: false,
+      imageSource: "Navalon.png",
+      objectID: "Navalon",
+    },
+    dragon_egg: {
+      name: "Dragon_Egg",
+      maxHealth: 10,
+      attack: 0,
+      defence: 2,
+      veteran: false,
+      imageSource: "DragonEgg.png",
+      objectID: "DragonEgg",
+    },
+    baby_dragon: {
+      name: "Baby_Dragon",
+      maxHealth: 15,
+      attack: 3,
+      defence: 3,
+      veteran: false,
+      imageSource: "BabyDragon.png",
+      objectID: "BabyDragon",
+    },
+    dragon: {
+      name: "Dragon",
+      maxHealth: 20,
+      attack: 4,
+      defence: 3,
+      veteran: false,
+      imageSource: "FireDragon.png",
+      objectID: "FireDragon",
+    },
+    amphibian: {
+      name: "Amphibian",
+      maxHealth: 10,
+      attack: 2,
+      defence: 1,
+      veteran: true,
+      imageSource: "Amphibian.png",
+      objectID: "Amphibian",
+    },
+    tridention: {
+      name: "Tridention",
+      maxHealth: 15,
+      attack: 3,
+      defence: 1,
+      imageSource: "Tridention.png",
+      objectID: "Tridention",
+    },
+    crab: {
+      name: "Crab",
+      maxHealth: 40,
+      attack: 4,
+      defence: 4,
+      veteran: false,
+      imageSource: "Crab.png",
+      objectID: "Crab",
+    },
+    ice_archer: {
+      name: "Ice_Archer",
+      maxHealth: 10,
+      attack: 0.1,
+      defence: 1,
+      veteran: true,
+      imageSource: "IceArcher.png",
+      objectID: "IceArcher",
+    },
+    battle_sled: {
+      name: "Battle_Sled",
+      maxHealth: 15,
+      attack: 3,
+      defence: 2,
+      veteran: true,
+      imageSource: "BattleSled.png",
+      objectID: "BattleSled",
+    },
+    gaami: {
+      name: "Gaami",
+      maxHealth: 30,
+      attack: 4,
+      defence: 4,
+      veteran: false,
+      imageSource: "Gaami.png",
+      objectID: "Gaami",
+    },
+    ice_fortress: {
+      name: "Ice_Fortress",
+      maxHealth: 20,
+      attack: 4,
+      defence: 3,
+      veteran: true,
+      imageSource: "IceFortress.png",
+      objectID: "Ice_Fortress",
+    },
+    mooni: {
+      name: "Mooni",
+      maxHealth: 10,
+      attack: 0,
+      defence: 2,
+      veteran: false,
+      imageSource: "Mooni.png",
+      objectID: "Mooni",
+    },
+    hexapod: {
+      name: "Hexapod",
+      maxHealth: 5,
+      attack: 3,
+      defence: 1,
+      veteran: true,
+      imageSource: "Hexapod.png",
+      objectID: "Hexapod",
+    },
+    kiton: {
+      name: "Kiton",
+      maxHealth: 15,
+      attack: 1,
+      defence: 3,
+      veteran: true,
+      imageSource: "Kiton.png",
+      objectID: "Kiton",
+    },
+    phychi: {
+      name: "Phychi",
+      maxHealth: 5,
+      attack: 1,
+      defence: 2,
+      veteran: true,
+      imageSource: "Phychi.png",
+      objectID: "Phychi",
+    },
+    shaman: {
+      name: "Shaman",
+      maxHealth: 10,
+      attack: 1,
+      defence: 1,
+      veteran: false,
+      imageSource: "Shaman.png",
+      objectID: "Shaman",
+    },
+    exida: {
+      name: "Exida",
+      maxHealth: 10,
+      attack: 3,
+      defence: 1,
+      veteran: true,
+      imageSource: "Exida.png",
+      objectID: "Exida",
+    },
+    raychi: {
+      name: "Raychi",
+      maxHealth: 15,
+      attack: 3,
+      defence: 2, 
+      veteran: true,
+      imageSource: "Raychi.png",
+      objectID: "Raychi",
+    },
+    doomux: {
+      name: "Doomux",
+      maxHealth: 20,
+      attack: 4,
+      defence: 2,
+      veteran: true,
+      imageSource: "Doomux.png",
+      objectID: "Doomux",
+    },
+    centipede: {
+      name: "Centipede",
+      maxHealth: 20,
+      attack: 4,
+      defence: 3,
+      veteran: false,
+      imageSource: "Centipede.png",
+      objectID: "Centipede",
+    },
+    segment: {
+      name: "Segment",
+      maxHealth: 10,
+      attack: 2,
+      defence: 2,
+      veteran: false,
+      imageSource: "Segment.png",
+      objectID: "Segment",
+    },
+    bunny: {
+      name: "Bunny",
+      maxHealth: 20,
+      attack: 5,
+      defence: 1,
+      veteran: false,
+      imageSource: "Bunny.png",
+      objectID: "Bunny",
+    },
+    bunta: {
+      name: "Bunta",
+      maxHealth: 20,
+      attack: 5,
+      defence: 1,
+      veteran: false,
+      imageSource: "Bunta.png",
+      objectID: "Bunta",
+    },
 
   };
 // 8 Giant 40 5 4
@@ -173,6 +440,9 @@ function App() {
     isVeteran: false,
     isBoosted: false,
     imageSource: "Warrior.png",
+    isBoat: false,
+    isShip: false,
+    isBattleShip: false,
   };
   var defaultSelectedDefender = {
     name: "warrior",
@@ -221,6 +491,15 @@ function App() {
   const [modalPopup, setModalPopup] = useState(false);  
   const [isModalAttacker, setIsModalAttacker] = useState(false);
 
+  // for resetting checked boxed
+
+//   const [uncheckedBox, setUncheckedBox] = useState('');
+
+//   function unCheck(i){
+//     let ref = 'ref_' + i;
+//     this.refs[ref].checked = !this.refs[ref].checked;
+//  }
+
     function resetData(isAttacker, updatedData){
     setSelectedAttackerData(updatedData);
     setSelectedDefenderData(defaultSelectedDefender);
@@ -247,6 +526,18 @@ function App() {
     } else{
       setSelectedDefenderData({ ...selectedDefender, ...charData });
     }
+
+    if(charData.name === "boat"){
+      charData.isBoat = true;
+    }
+    else if(charData.name === "ship"){
+      charData.isShip = true;
+    }
+
+    else if(charData.anem === "battleShip"){
+      charData.isBattleShip = true;
+    }
+
     triggerModal(false);
   }
   return (

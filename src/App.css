@@ -47,3 +47,28 @@
 .primary-darker {
   color: rgba(60,0,190);
 }
+
+.hide-text {
+  visibility: hidden;
+}
+
+.show-text{
+  visibility: visible;
+  color: green;
+}
+
+.show-text-red {
+  visibility: visible;
+  color: red;
+}
+
+.small-image-size {
+  max-width: 25px;
+  max-height: 25px;
+  /* visibility: visible;
+  display: inline-block; */
+}
+
+.hide-image {
+  visibility: hidden;
+}
